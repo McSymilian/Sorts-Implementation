@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1ae0ad6c-938f-4f58-bf0f-90e5d0ed1c4b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sorts.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/AbstractSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/AShapedDatasetGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/DatasetGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/DecreasingDatasetGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/IncreasingDatasetGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/IntegerDatasetGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/RandomDatasetGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/VShapedDatasetGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/Sort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/SortResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/Sorter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/bubble/BubbleSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/bubble/BubbleSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/heap/HeapSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/heap/HeapSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/insertion/InsertionSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/insertion/InsertionSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/merge/MergeSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/merge/MergeSortResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/merge/MergeSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSortResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSortSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/selection/SelectionSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/selection/SelectionSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/shell/ShellSort.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2dGlA4EexbDBtmxTVWOEH91CLqb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.BubbleSortTest.sort.executor": "Run",
+    "JUnit.HeapSortTest.executor": "Run",
+    "JUnit.InsertionSortTest.executor": "Run",
+    "JUnit.InsertionSortTest.sort.executor": "Run",
+    "JUnit.MergeSortTest.sort.executor": "Run",
+    "JUnit.QuickSortSortTest.sort.executor": "Run",
+    "JUnit.QuickSortTest.sort.executor": "Run",
+    "JUnit.SelectionSortTest.sort.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "pl.ryder.sorts.AbstractSortTest",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="pl.ryder.sorts.sort" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="pl.ryder.sorts.AbstractSortTest" />
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="pl.ryder.sorts.sort.bubble" />
+      <recent name="pl.ryder.sorts.sort.heap" />
+      <recent name="pl.ryder.sorts.sort.insertion" />
+      <recent name="pl.ryder.sorts.sort.merge" />
+      <recent name="pl.ryder.sorts.sort.selection" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.Main" />
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InsertionSortTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.insertion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.insertion" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.insertion.InsertionSortTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InsertionSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.insertion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.insertion" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.insertion.InsertionSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InsertionSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.insertion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.insertion" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.insertion.InsertionSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MergeSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.merge.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.merge" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.merge.MergeSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MergeSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.merge.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.merge" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.merge.MergeSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuickSortSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.quick.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.quick" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.quick.QuickSortSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuickSortSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.quick.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.quick" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.quick.QuickSortSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectionSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.selection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.selection" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.selection.SelectionSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectionSortTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sorts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.ryder.sorts.sort.selection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.ryder.sorts.sort.selection" />
+      <option name="MAIN_CLASS_NAME" value="pl.ryder.sorts.sort.selection.SelectionSortTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.InsertionSortTest.sort" />
+        <item itemvalue="JUnit.QuickSortSortTest.sort" />
+        <item itemvalue="JUnit.SelectionSortTest.sort" />
+        <item itemvalue="JUnit.MergeSortTest.sort" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-19.0.2-corretto-19.0.2-f644763e9732-1e16d6ec" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ae0ad6c-938f-4f58-bf0f-90e5d0ed1c4b" name="Changes" comment="" />
+      <created>1709642155450</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709642155450</updated>
+      <workItem from="1709642156972" duration="7521000" />
+      <workItem from="1709734498047" duration="24391000" />
+      <workItem from="1709893778444" duration="4966000" />
+      <workItem from="1709901760320" duration="1292000" />
+      <workItem from="1710090500602" duration="4715000" />
+      <workItem from="1710188345185" duration="2730000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
