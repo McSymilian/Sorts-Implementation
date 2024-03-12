@@ -4,45 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ae0ad6c-938f-4f58-bf0f-90e5d0ed1c4b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sorts.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/AbstractSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/AShapedDatasetGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/DatasetGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/DecreasingDatasetGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/IncreasingDatasetGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/IntegerDatasetGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/RandomDatasetGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/VShapedDatasetGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/Sort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/SortResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/Sorter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/bubble/BubbleSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/bubble/BubbleSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/heap/HeapSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/heap/HeapSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/insertion/InsertionSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/insertion/InsertionSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/merge/MergeSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/merge/MergeSortResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/merge/MergeSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSortResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSortSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/selection/SelectionSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/selection/SelectionSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/shell/ShellSort.java" afterDir="false" />
+    <list default="true" id="1ae0ad6c-938f-4f58-bf0f-90e5d0ed1c4b" name="Changes" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/ryder/sorts/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -311,12 +281,26 @@
       <workItem from="1709893778444" duration="4966000" />
       <workItem from="1709901760320" duration="1292000" />
       <workItem from="1710090500602" duration="4715000" />
-      <workItem from="1710188345185" duration="2730000" />
+      <workItem from="1710188345185" duration="7671000" />
+      <workItem from="1710240115445" duration="1335000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1710191362743</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710191362743</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

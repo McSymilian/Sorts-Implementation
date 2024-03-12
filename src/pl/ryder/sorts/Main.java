@@ -24,6 +24,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -32,58 +33,50 @@ public class Main {
 
         getDatasetsGenerators().forEach(datasetGenerator -> {
 
-            final String dir = new StringBuilder()
-                    .append("results")
-                    .append("/")
-                    .append(datasetGenerator.getClass()
-                    .getSimpleName()
-                    .replace("Generator", ""))
-                    .toString();
+            final String dir = "results" + "/" + datasetGenerator.getClass().getSimpleName().replace("Generator", "");
 
             var f = new File(dir);
             f.mkdirs();
 
             measureSortingTimes(generateDatasets(datasetGenerator))
-                    .forEach((type, list) ->
-                            Thread.ofVirtual().start(() -> {
-                                String resFilePath = dir + "/" + type + ".csv";
+                    .forEach((type, list) -> {
 
-                                File file = new File(resFilePath);
+                        String resFilePath = dir + "/" + type + ".csv";
 
-                                try (Writer writer = new FileWriter(file)) {
+                        File file = new File(resFilePath);
 
-                                    writer.append("length;time;time_deviation;swaps;swaps_deviation;comparisons;comparison_deviation\n");
-                                    list.stream()
-                                            .collect(groupingBy(it -> it.getSortResults().getOutputArray().size()))
-                                            .values()
-                                            .stream()
-                                            .map(AverageResult::countUp)
-                                            .sorted(Comparator.comparingInt(AverageResult::length))
-                                            .forEach(res -> {
-                                                try {
-                                                    writer.append(String.valueOf(res.length()))
-                                                            .append(";")
-                                                            .append(String.valueOf(res.time()).replace(".", ","))
-                                                            .append(";")
-                                                            .append(String.valueOf(res.timeDeviation()).replace(".", ","))
-                                                            .append(";")
-                                                            .append(String.valueOf(res.swaps()).replace(".", ","))
-                                                            .append(";")
-                                                            .append(String.valueOf(res.swapsDeviation()).replace(".", ","))
-                                                            .append(";")
-                                                            .append(String.valueOf(res.comparisons()).replace(".", ","))
-                                                            .append(";")
-                                                            .append(String.valueOf(res.comparisonsDeviation()).replace(".", ","))
-                                                            .append("\n");
-                                                } catch (IOException e) {
-                                                    throw new RuntimeException(e);
-                                                }
-                                            });
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            })
-                    );
+                        try (Writer writer = new FileWriter(file)) {
+                            writer.append("length;time;time_deviation;swaps;swaps_deviation;comparisons;comparison_deviation\n");
+                            list.stream()
+                                .collect(groupingBy(it -> it.getSortResults().getOutputArray().size()))
+                                .values()
+                                .stream()
+                                .map(AverageResult::countUp)
+                                .sorted(Comparator.comparingInt(AverageResult::length))
+                                .forEach(res -> {
+                                    try {
+                                        writer.append(String.valueOf(res.length()))
+                                                .append(";")
+                                                .append(String.valueOf(res.time()).replace(".", ","))
+                                                .append(";")
+                                                .append(String.valueOf(res.timeDeviation()).replace(".", ","))
+                                                .append(";")
+                                                .append(String.valueOf(res.swaps()).replace(".", ","))
+                                                .append(";")
+                                                .append(String.valueOf(res.swapsDeviation()).replace(".", ","))
+                                                .append(";")
+                                                .append(String.valueOf(res.comparisons()).replace(".", ","))
+                                                .append(";")
+                                                .append(String.valueOf(res.comparisonsDeviation()).replace(".", ","))
+                                                .append("\n");
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                });
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                    });
         });
 
     }
@@ -93,23 +86,27 @@ public class Main {
 
         Map<String, List<Result<SortResult<Integer>, Integer>>> measurements = new HashMap<>();
 
-        sorters.forEach(it -> {
-
-            String sorterName = it.getClass().getSimpleName();
+        AtomicInteger j = new AtomicInteger();
+        sorters.forEach(sorter -> {
+            System.out.println("<------" + j.getAndIncrement() + "/" + sorters.size() + "------>");
+            String sorterName = sorter.getClass().getSimpleName();
             measurements.put(sorterName, new ArrayList<>());
-
-            dataset.forEach(testSet -> Thread.ofVirtual().start(() -> {
+            AtomicInteger i = new AtomicInteger();
+            dataset.forEach(testSet -> {
+                System.out.println(i.getAndIncrement() + "/" + dataset.size());
                 Result<SortResult<Integer>, Integer> result = new Result<>();
 
                 result.startTimer();
 
-                var res = it.sort(new ArrayList<>(testSet));
+                var res = sorter.sort(new ArrayList<>(testSet));
 
                 result.stopTimer();
                 result.setSortResults(res);
                 measurements.get(sorterName).add(result);
-            }));
+                System.out.println(i.get() + "/" + dataset.size());
+            });
         });
+
         return measurements;
     }
 
@@ -127,11 +124,11 @@ public class Main {
     private static List<List<Integer>> generateDatasets(DatasetGenerator<Integer> datasetGenerator) {
 
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 1; i <= 15; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 1; i <= 15; i++)
+            for (int j = 0; j < 10; j++)
                 res.add(datasetGenerator.generate((int) Math.pow(2, i)));
-            }
-        }
+
+
         return res;
     }
 

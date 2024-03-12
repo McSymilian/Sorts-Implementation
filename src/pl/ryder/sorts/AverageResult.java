@@ -9,7 +9,6 @@ public record AverageResult(
         double timeDeviation,
         double comparisons,
         double comparisonsDeviation,
-
         double swaps,
         double swapsDeviation,
         int length
@@ -27,7 +26,9 @@ public record AverageResult(
         double comparisonsDeviation = Math.sqrt(
                 (dataset.stream()
                         .map(it -> (double) it.getSortResults().getComparisonsNumber())
-                        .reduce((a, b) -> a + Math.pow(b - averageComparisons, 2))
+                        .map(it -> it - averageComparisons)
+                        .map(it -> it * it)
+                        .reduce(Double::sum)
                         .orElse(0D)
                 ) / dataset.size());
 
