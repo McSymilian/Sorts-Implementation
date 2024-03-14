@@ -1,0 +1,1257 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{units}
+\pgfplotsset{
+	every axis legend/.append style={
+		at={(1.01,1)},
+		anchor=north west
+	}
+}
+
+\author{Maksymilian Ryder}
+\title{Algorytmy Sortowania}
+\begin{document}
+\maketitle
+
+\section{Zależność czasowa wybranego algorytmu od danych wejściowych}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,,
+	title={BubbleSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/BubbleSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/BubbleSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/BubbleSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/BubbleSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/BubbleSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={HeapSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/HeapSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/HeapSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/HeapSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/HeapSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/HeapSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={SelectionSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/SelectionSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/SelectionSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/SelectionSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/SelectionSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/SelectionSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={QuickSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/QuickSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/QuickSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/QuickSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/QuickSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/QuickSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={MergeSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/MergeSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/MergeSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/MergeSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/MergeSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/MergeSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={InsertionSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/InsertionSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/InsertionSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/InsertionSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/InsertionSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/InsertionSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+\pagebreak
+\section{Efektywność czasowa zaimplementowanych metod sortowania dla wybranej postaci danych}
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={A-Shaped Dataset}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/BubbleSort.csv};
+\addlegendentry{BubbleSort}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/HeapSort.csv};
+\addlegendentry{HeapSort}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/InsertionSort.csv};
+\addlegendentry{InserionSort}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/MergeSort.csv};
+\addlegendentry{MergeSort}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/QuickSort.csv};
+\addlegendentry{QuickSort}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/SelectionSort.csv};
+\addlegendentry{SelectionSort}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={V-Shaped Dataset}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/BubbleSort.csv};
+\addlegendentry{BubbleSort}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/HeapSort.csv};
+\addlegendentry{HeapSort}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/InsertionSort.csv};
+\addlegendentry{InserionSort}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/MergeSort.csv};
+\addlegendentry{MergeSort}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/QuickSort.csv};
+\addlegendentry{QuickSort}
+
+\addplot [smooth, color=blue, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/SelectionSort.csv};
+\addlegendentry{SelectionSort}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={Random Dataset}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/BubbleSort.csv};
+\addlegendentry{BubbleSort}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/HeapSort.csv};
+\addlegendentry{HeapSort}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/InsertionSort.csv};
+\addlegendentry{InserionSort}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/MergeSort.csv};
+\addlegendentry{MergeSort}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/QuickSort.csv};
+\addlegendentry{QuickSort}
+
+\addplot [smooth, color=blue, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/RandomDataset/SelectionSort.csv};
+\addlegendentry{SelectionSort}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={Decreasing Dataset}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/BubbleSort.csv};
+\addlegendentry{BubbleSort}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/HeapSort.csv};
+\addlegendentry{HeapSort}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/InsertionSort.csv};
+\addlegendentry{InserionSort}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/MergeSort.csv};
+\addlegendentry{MergeSort}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/QuickSort.csv};
+\addlegendentry{QuickSort}
+
+\addplot [smooth, color=blue, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/SelectionSort.csv};
+\addlegendentry{SelectionSort}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$time$,
+	xlabel=$size$,
+	y unit=s, y SI prefix=milli,
+	xmode=log,
+	ymode=log,
+	title={Increasing Dataset}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/BubbleSort.csv};
+\addlegendentry{BubbleSort}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/HeapSort.csv};
+\addlegendentry{HeapSort}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/InsertionSort.csv};
+\addlegendentry{InserionSort}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/MergeSort.csv};
+\addlegendentry{MergeSort}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/QuickSort.csv};
+\addlegendentry{QuickSort}
+
+\addplot [smooth, color=blue, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=2,
+		x=length,
+		y=time,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/SelectionSort.csv};
+\addlegendentry{SelectionSort}
+\end{axis}
+\end{tikzpicture}
+\pagebreak
+\section{Zależność operacji po wybranego algorytmu od danych wejściowych}
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$operations$,
+	xlabel=$size$,
+	xmode=log,
+	ymode=log,
+	title={BubbleSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error=operations_deviation,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/BubbleSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/BubbleSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/RandomDataset/BubbleSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/BubbleSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/BubbleSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$operations$,
+	xlabel=$size$,
+	xmode=log,
+	ymode=log,  
+	title={HeapSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/HeapSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/HeapSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/RandomDataset/HeapSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/HeapSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/HeapSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$operations$,
+	xlabel=$size$,
+	xmode=log,
+	ymode=log,
+	title={SelectionSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/SelectionSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/SelectionSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/RandomDataset/SelectionSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/SelectionSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/SelectionSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$operations$,
+	xlabel=$size$,
+	xmode=log,
+	ymode=log,
+	title={QuickSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/QuickSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/QuickSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/RandomDataset/QuickSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/QuickSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/QuickSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$operations$,
+	xlabel=$size$,
+	xmode=log,
+	ymode=log,
+	title={MergeSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/MergeSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/MergeSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/RandomDataset/MergeSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/MergeSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/MergeSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	width=10cm,
+	height=8cm,
+	ylabel=$operations$,
+	xlabel=$size$,
+	xmode=log,
+	ymode=log,
+	title={InsertionSort}
+	]
+\addplot [smooth, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/AShapedDataset/InsertionSort.csv};
+\addlegendentry{A-Shaped}
+
+\addplot [smooth, color=red, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/VShapedDataset/InsertionSort.csv};
+\addlegendentry{V-Shaped}
+
+\addplot [smooth, color=Dandelion, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/RandomDataset/InsertionSort.csv};
+\addlegendentry{Random}
+
+\addplot [smooth, color=Fuchsia, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/DecreasingDataset/InsertionSort.csv};
+\addlegendentry{Decreasing}
+
+\addplot [smooth, color=OliveGreen, mark=*, mark size=0.5pt]
+	plot [error bars/.cd, y dir = both, y explicit]
+	table[
+		y error index=8,
+		x=length,
+		y=operations,
+		col sep=semicolon
+	]
+	{results/IncreasingDataset/InsertionSort.csv};
+\addlegendentry{Increasing}
+\end{axis}
+\end{tikzpicture}
+
+\pagebreak
+\section{Wnioski}
+\begin{center}
+\begin{tabular}{|r|c|c|c|}\hline  
+\multirow{2}{*}{Nazwa algorytmu} & \multicolumn{3}{c|}{Przypadek} \\ \cline{2-4}
+ & Optymistyczny & Średni & Pesymistyczny\\ \hline
+Bubble Sort & $O(n)$ & $O(n^2)$ & $O(n^2)$\\ \hline
+Insertion Sort & $O(n)$ & $O(n^2)$ & $O(n^2)$\\ \hline
+Selection Sort & $O(n^2)$ & $O(n^2)$ & $O(n^2)$\\ \hline
+Heap Sort & $O(n \log_2n)$ & $O(n \log_2n)$ & $O(n \log_2n)$\\ \hline
+Merge Sort & $O(n \log_2n)$ & $O(n \log_2n)$ & $O(n \log_2n)$\\ \hline
+Quick Sort & $O(n \log_2n)$ & $O(n \log_2n)$ & $O(n^2)$\\ \hline
+\end{tabular}
+\end{center}
+
+
+\subsection*{}
+Ilość operacji wykonywanych przez algorytm jest wprost proporcjonalny do czasu działania. Widać to na wykresach, których przebiegi się pokrywają. Widać również, że algorytmy warunkowe są w stanie zapewnić lepszą złożoność w sytuacjach co najmniej optymistycznych. Algorytmy "proste", "mechaniczne" czy też po prostu "bez if'owe" mimo większej prostoty i czystości kodu przy analizie, są skazane na tą samą złożoność niezależnie od podanych danych.
+
+\end{document}
