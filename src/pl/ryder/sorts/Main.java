@@ -24,7 +24,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -46,7 +45,7 @@ public class Main {
                         File file = new File(resFilePath);
 
                         try (Writer writer = new FileWriter(file)) {
-                            writer.append("length;time;time_deviation;swaps;swaps_deviation;comparisons;comparison_deviation\n");
+                            writer.append("length;time;time_deviation;swaps;swaps_deviation;comparisons;comparison_deviation;operations;operations_deviation\n");
                             list.stream()
                                 .collect(groupingBy(it -> it.getSortResults().getOutputArray().size()))
                                 .values()
@@ -55,19 +54,24 @@ public class Main {
                                 .sorted(Comparator.comparingInt(AverageResult::length))
                                 .forEach(res -> {
                                     try {
+                                        double millisecond = 10e6D;
                                         writer.append(String.valueOf(res.length()))
                                                 .append(";")
-                                                .append(String.valueOf(res.time()).replace(".", ","))
+                                                .append(String.valueOf(res.time() / millisecond))
                                                 .append(";")
-                                                .append(String.valueOf(res.timeDeviation()).replace(".", ","))
+                                                .append(String.valueOf(res.timeDeviation() / millisecond))
                                                 .append(";")
-                                                .append(String.valueOf(res.swaps()).replace(".", ","))
+                                                .append(String.valueOf(res.swaps()))
                                                 .append(";")
-                                                .append(String.valueOf(res.swapsDeviation()).replace(".", ","))
+                                                .append(String.valueOf(res.swapsDeviation()))
                                                 .append(";")
-                                                .append(String.valueOf(res.comparisons()).replace(".", ","))
+                                                .append(String.valueOf(res.comparisons()))
                                                 .append(";")
-                                                .append(String.valueOf(res.comparisonsDeviation()).replace(".", ","))
+                                                .append(String.valueOf(res.comparisonsDeviation()))
+                                                .append(";")
+                                                .append(String.valueOf(res.operations()))
+                                                .append(";")
+                                                .append(String.valueOf(res.operationsDeviation()))
                                                 .append("\n");
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
@@ -86,14 +90,11 @@ public class Main {
 
         Map<String, List<Result<SortResult<Integer>, Integer>>> measurements = new HashMap<>();
 
-        AtomicInteger j = new AtomicInteger();
         sorters.forEach(sorter -> {
-            System.out.println("<------" + j.getAndIncrement() + "/" + sorters.size() + "------>");
             String sorterName = sorter.getClass().getSimpleName();
             measurements.put(sorterName, new ArrayList<>());
-            AtomicInteger i = new AtomicInteger();
+
             dataset.forEach(testSet -> {
-                System.out.println(i.getAndIncrement() + "/" + dataset.size());
                 Result<SortResult<Integer>, Integer> result = new Result<>();
 
                 result.startTimer();
@@ -103,7 +104,6 @@ public class Main {
                 result.stopTimer();
                 result.setSortResults(res);
                 measurements.get(sorterName).add(result);
-                System.out.println(i.get() + "/" + dataset.size());
             });
         });
 
@@ -125,7 +125,7 @@ public class Main {
 
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 1; i <= 15; i++)
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < 30; j++)
                 res.add(datasetGenerator.generate((int) Math.pow(2, i)));
 
 

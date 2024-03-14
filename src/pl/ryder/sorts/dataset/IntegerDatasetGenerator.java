@@ -14,10 +14,12 @@ public abstract class IntegerDatasetGenerator implements DatasetGenerator<Intege
 
     @Override
     public List<Integer> generate(int length) {
-        List<Integer> base = new ArrayList<>(length);
+        List<Integer> base = new ArrayList<>();
 
-        for (int i = 0; i < length; i++)
-            base.add(getRandom().nextInt(1, length * 10));
+        for (int i = 0; i < length; i++) {
+            int upperBound = length * 10;
+            base.add(getRandom().nextInt(1, upperBound));
+        }
 
         List<Integer> res = new ArrayList<>();
         AtomicBoolean back = new AtomicBoolean(false);

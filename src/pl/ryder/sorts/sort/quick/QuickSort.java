@@ -12,32 +12,30 @@ public class QuickSort <T extends Comparable<T>> extends Sorter<T> {
 
     private final List<Integer> pivots = new ArrayList<>();
 
-    private List<T> quick(List<T> base, int pivot) {
-        if (base.size() <= 1)
-            return base;
+    private void quick(List<T> base, int left, int right) {
+        if (right <= left)
+            return;
 
-        getPivots().add(pivot);
+        int q = partition(base, left, right);
+        quick(base, left, q - 1);
+        quick(base, q + 1, right);
 
-        final List<T> left = new ArrayList<>();
-        final List<T> right = new ArrayList<>();
+    }
+    int partition(List<T> base, int left, int right) {
+        T x = base.get(left);
+        int i = left;
 
-        final T pivotVal = base.get(pivot);
-
-        for (var val: base.subList(0, base.size() - 1)) {
+        for(int j = left + 1;j <= right; j++) {
             incrementComparisons();
-            if (val.compareTo(pivotVal) >= 0)
-                right.add(val);
-
-            else
-                left.add(val);
+            if (base.get(j).compareTo(x) < 1) {
+                i = i + 1;
+                swap(base, i, j);
+            }
         }
 
-        base.clear();
-        base.addAll(quick(left, left.size() - 1));
-        base.add(pivotVal);
-        base.addAll(quick(right, right.size() - 1));
+        swap(base, i, left);
 
-        return base;
+        return i;
     }
 
     @Override
@@ -48,7 +46,7 @@ public class QuickSort <T extends Comparable<T>> extends Sorter<T> {
         getPivots().clear();
 
         List<T> ans = new ArrayList<>(array);
-        quick(ans, ans.size() - 1);
+        quick(ans, 0, ans.size() - 1);
 
         setOutput(ans);
 
