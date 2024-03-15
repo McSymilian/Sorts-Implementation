@@ -24,6 +24,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -124,7 +125,7 @@ public class Main {
     private static List<List<Integer>> generateDatasets(DatasetGenerator<Integer> datasetGenerator) {
 
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 1; i <= 15; i++)
+        for (int i = 1; i <= 10; i++)
             for (int j = 0; j < 30; j++)
                 res.add(datasetGenerator.generate((int) Math.pow(2, i)));
 

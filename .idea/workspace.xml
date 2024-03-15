@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae0ad6c-938f-4f58-bf0f-90e5d0ed1c4b" name="Changes" comment="deviations counting">
-      <change afterPath="$PROJECT_DIR$/Sprawozdanie.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sprawozdanie.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sorts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sorts.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" afterDir="false" />
@@ -32,10 +30,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="fast-versions" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
