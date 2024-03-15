@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ae0ad6c-938f-4f58-bf0f-90e5d0ed1c4b" name="Changes" comment="deviations counting">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sorts.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/AverageResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/ryder/sorts/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/IntegerDatasetGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/dataset/IntegerDatasetGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/ryder/sorts/sort/quick/QuickSort.java" afterDir="false" />
-    </list>
+    <list default="true" id="1ae0ad6c-938f-4f58-bf0f-90e5d0ed1c4b" name="Changes" comment="changes removed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
