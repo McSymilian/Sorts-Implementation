@@ -61,9 +61,11 @@ public record AverageResult(
 
     private static double countDeviation(List<Result<SortResult<Integer>, Integer>> dataset, double average) {
         double sum = 0;
-        for (int i = 0; i < dataset.size(); i++) {
-            sum += Math.pow(dataset.get(i).getSortResults().getSwapsNumber() + dataset.get(i).getSortResults().getComparisonsNumber() - average, 2);
-        }
+        for (Result<SortResult<Integer>, Integer> sortResultIntegerResult : dataset)
+            sum += Math.pow(
+                    sortResultIntegerResult.getSortResults().getSwapsNumber() + sortResultIntegerResult.getSortResults().getComparisonsNumber() - average,
+                    2
+            );
         return Math.sqrt(sum / dataset.size());
     }
 }

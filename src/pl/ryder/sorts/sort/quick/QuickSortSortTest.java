@@ -10,13 +10,12 @@ class QuickSortSortTest extends AbstractSortTest {
 
     @Test
     void sort() {
-        Assertions.assertArrayEquals(
-                getTestData().stream()
-                        .sorted()
-                        .toArray(Integer[]::new),
-                sort.sort(getTestData())
-                        .getOutputArray()
-                        .toArray(Integer[]::new)
-        );
+        var promise = getTestData().stream()
+                .sorted()
+                .toArray(Integer[]::new);
+        var given = sort.sort(getTestData())
+                .getOutputArray()
+                .toArray(Integer[]::new);
+        Assertions.assertArrayEquals(promise, given);
     }
 }

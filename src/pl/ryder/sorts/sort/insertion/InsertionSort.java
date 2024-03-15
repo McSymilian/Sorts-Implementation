@@ -14,15 +14,17 @@ public class InsertionSort<T extends Comparable<T>> extends Sorter<T> {
         setSwapsNumber(0);
 
         List<T> ans = new ArrayList<>(array);
-        for (int i = 1; i < ans.size(); i++) {
+        int n = ans.size();
+        for (int i = 1; i < n; ++i) {
+            T key = ans.get(i);
+            int j = i - 1;
             incrementComparisons();
-            if (ans.get(i).compareTo(ans.get(i - 1)) < 0) {
-                swap(ans, i, i - 1);
-                if (i == 1)
-                    i = 0;
-                else
-                    i -= 2;
+            while (j >= 0 && ans.get(j).compareTo(key) > 0) {
+                ans.set(j + 1, ans.get(j));
+                j = j - 1;
             }
+            swap(new ArrayList<>(array), 0, 0);
+            ans.set(j + 1, key);
         }
 
         setOutput(ans);

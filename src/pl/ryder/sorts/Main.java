@@ -112,20 +112,20 @@ public class Main {
 
     private static ArrayList<Sorter<Integer>> getSorters() {
         return new ArrayList<>(List.of(
+                new QuickSort<>(),
                 new MergeSort<>(),
                 new HeapSort<>(),
                 new BubbleSort<>(),
                 new SelectionSort<>(),
-                new InsertionSort<>(),
-                new QuickSort<>()
+                new InsertionSort<>()
         ));
     }
 
     private static List<List<Integer>> generateDatasets(DatasetGenerator<Integer> datasetGenerator) {
 
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 1; i <= 15; i++)
-            for (int j = 0; j < 30; j++)
+        for (int i = 1; i <= 14; i++)
+            for (int j = 0; j < 10; j++)
                 res.add(datasetGenerator.generate((int) Math.pow(2, i)));
 
 
