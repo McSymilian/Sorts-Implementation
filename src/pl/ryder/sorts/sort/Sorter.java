@@ -58,6 +58,7 @@ public abstract class Sorter<T extends Comparable<T>> implements Sort<T> {
 
     protected void swap(List<T> array, int a, int b) {
         swapsNumber++;
+
         T temp = array.get(a);
 
         array.set(a, array.get(b));

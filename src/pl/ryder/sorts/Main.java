@@ -125,8 +125,8 @@ public class Main {
     private static List<List<Integer>> generateDatasets(DatasetGenerator<Integer> datasetGenerator) {
 
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 1; i <= 15; i++)
-            for (int j = 0; j < 30; j++)
+        for (int i = 1; i <= 10; i++)
+            for (int j = 0; j < 200; j++)
                 res.add(datasetGenerator.generate((int) Math.pow(2, i)));
 
 

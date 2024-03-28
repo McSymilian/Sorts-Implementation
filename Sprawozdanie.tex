@@ -96,6 +96,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -163,6 +164,7 @@
 \addlegendentry{Increasing}
 \end{axis}
 \end{tikzpicture}
+
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -232,6 +234,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -300,6 +303,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -367,6 +371,7 @@
 \addlegendentry{Increasing}
 \end{axis}
 \end{tikzpicture}
+
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -516,6 +521,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -594,6 +600,7 @@
 \addlegendentry{SelectionSort}
 \end{axis}
 \end{tikzpicture}
+
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -674,6 +681,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -752,6 +760,7 @@
 \addlegendentry{SelectionSort}
 \end{axis}
 \end{tikzpicture}
+
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -900,6 +909,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -966,6 +976,7 @@
 \addlegendentry{Increasing}
 \end{axis}
 \end{tikzpicture}
+
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -1034,6 +1045,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -1101,6 +1113,7 @@
 \end{axis}
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \begin{axis}[
 	width=10cm,
@@ -1167,6 +1180,7 @@
 \addlegendentry{Increasing}
 \end{axis}
 \end{tikzpicture}
+
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -1236,22 +1250,34 @@
 \end{tikzpicture}
 
 \pagebreak
-\section{Wnioski}
+\section{Podsumowanie}
+\subsection{Złożoności}
 \begin{center}
+\renewcommand{\arraystretch}{2}
 \begin{tabular}{|r|c|c|c|}\hline  
 \multirow{2}{*}{Nazwa algorytmu} & \multicolumn{3}{c|}{Przypadek} \\ \cline{2-4}
  & Optymistyczny & Średni & Pesymistyczny\\ \hline
+Selection Sort & $O(n^2)$ & $O(n^2)$ & $O(n^2)$\\ \hline
 Bubble Sort & $O(n)$ & $O(n^2)$ & $O(n^2)$\\ \hline
 Insertion Sort & $O(n)$ & $O(n^2)$ & $O(n^2)$\\ \hline
-Selection Sort & $O(n^2)$ & $O(n^2)$ & $O(n^2)$\\ \hline
+Quick Sort & $O(n \log_2n)$ & $O(n \log_2n)$ & $O(n^2)$\\ \hline
 Heap Sort & $O(n \log_2n)$ & $O(n \log_2n)$ & $O(n \log_2n)$\\ \hline
 Merge Sort & $O(n \log_2n)$ & $O(n \log_2n)$ & $O(n \log_2n)$\\ \hline
-Quick Sort & $O(n \log_2n)$ & $O(n \log_2n)$ & $O(n^2)$\\ \hline
 \end{tabular}
+\renewcommand{\arraystretch}{1}
 \end{center}
 
+\subsection{Wnioski}
 
-\subsection*{}
-Ilość operacji wykonywanych przez algorytm jest wprost proporcjonalny do czasu działania. Widać to na wykresach, których przebiegi się pokrywają. Widać również, że algorytmy warunkowe są w stanie zapewnić lepszą złożoność w sytuacjach co najmniej optymistycznych. Algorytmy "proste", "mechaniczne" czy też po prostu "bez if'owe" mimo większej prostoty i czystości kodu przy analizie, są skazane na tą samą złożoność niezależnie od podanych danych.
+Stosując wykresy z obiema osiami logarytmicznymi możemy dostrzec, że kształt przebiegów jest liniowy i analizując wartości jest on "po prostu liniowy", na przykład ilość operacji dla danych narastających przy Insertion Sorcie lub kwadratowy przebieg funkcji mimo wykresu liniowego. Dobrym przykładem jest V kształtny zestaw danych wejściowych dla wcześniej wspomnianego algorytmu.
+
+Ciekawym zjawiskiem jest również identyczność wykresów ilości operacji dla Selection Sorta. Wynika on z faktu, że sortowanie przez wybór zawsze musi przejść przez malejącą tablice n razy i tą samą ilość razy porównać.
+
+Ciekawym zjawiskiem jest QuickSort, który jest bardzo łakomy pamięci, co powoduje, że przy ponad 1000 elementów, algorytm powoduje wywołanie wyjątka StackOverflow. Powodowane jest to metodycznym tworzeniem 2 tablic pomocniczych, które są znów sortowane tym samym algorytmem. 
+
+Duże wahania czasu wykonywania algorytmów są spowodowane, bardzo niskimi czasami działania, co oznacza, że na wyniki pomiaru mają bardzo duży wpływ inne procesy, które naturalnie opóźniają, w sposób nie predyktywny.
+
+\subsection{Kod}
+GitHub: https://github.com/McSymilian/Sorts-Implementation
 
 \end{document}
